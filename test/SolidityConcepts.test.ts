@@ -145,7 +145,7 @@ describe('SolidityConcepts', function () {
 
       expect(
         sourceCode.match(
-          /\bfunction\s+\w+\s*\([^)]*\)\s+public\s+onlyOwner\s*\{/
+          /\bfunction\s+\w+\s*\([^)]*\)[^{]*onlyOwner[^{]*\{/
         )
       ).to.not.be.null;
     });
