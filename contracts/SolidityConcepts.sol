@@ -56,7 +56,7 @@ contract SolidityConcepts {
     }
 
     function withDraw() public onlyOwner {
-        uint256 amount = address(this).balance;
-        payable(msg.sender).transfer(amount);
+        (bool success, ) = msg.sender.call{value: address(this).balance}("");
+        require(success, "Failed to withdraw");
     }
 }
